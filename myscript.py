@@ -11,7 +11,7 @@ db = client.ebo4dq
 collection = db.project2
 
 
-#Travesing directory contents
+#Travesing directory contents 
 path = "./data"
 
 for (root, dirs, files) in os.walk(path):
@@ -25,6 +25,7 @@ for (root, dirs, files) in os.walk(path):
                 print("JSON format is invalid for file", file_name)
                 continue           
 
+            #File is valid json, so add based on type
             if isinstance(file_data, list):
                 collection.insert_many(file_data)  
             else:
